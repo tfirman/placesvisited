@@ -21,31 +21,35 @@ $(document).ready(function() {
     });
     var inputtedNumber = $("input#vNumber").val();
     var inputtedNotes = $("input#notes").val();
+    if (inputtedName === "" || inputtedLandmark === ""){
+      alert ("Required fields have been left blank!");
+    } else if (inputtedNumber <= 0) {
+      alert ("Number of visits must be positive!");      
+    }  else {
+      var newDestination = new Destination(inputtedName, inputtedLandmark, seasonsArray, inputtedNumber, inputtedNotes);
 
-    var newDestination = new Destination(inputtedName, inputtedLandmark, seasonsArray, inputtedNumber, inputtedNotes);
+      $("ul#destination").append("<li><span class='destination'>" + inputtedName + "</span></li>");
 
-    $("ul#destination").append("<li><span class='destination'>" + inputtedName + "</span></li>");
+      $(".destination").last().click(function() {
+        $("#show-destination").show();
+        $("#show-destination h2").text(newDestination.name);
+        $(".landmark").text(newDestination.landmark);
+        $(".season").text(newDestination.season);
+        $(".vNumbers").text(newDestination.number);
+        $(".notes").text(newDestination.notes);
+      });
 
-    $(".destination").last().click(function() {
-      $("#show-destination").show();
-      $("#show-destination h2").text(newDestination.name);
-      $(".landmark").text(newDestination.landmark);
-      $(".season").text(newDestination.season);
-      $(".vNumbers").text(newDestination.number);
-      $(".notes").text(newDestination.notes);
-    });
-
-    $("input#new-destination").val("");
-    $("input#new-landmark").val("");
-    $('input[type=checkbox]').each(function() {
-      if (this.value === 'summer') {
-        this.checked = true;
-      } else {
-        this.checked = false;
-      };
-    });
-    $("input#vNumber").val("");
-    $("input#notes").val("");
-
+      $("input#new-destination").val("");
+      $("input#new-landmark").val("");
+      $('input[type=checkbox]').each(function() {
+        if (this.value === 'summer') {
+          this.checked = true;
+        } else {
+          this.checked = false;
+        };
+      });
+      $("input#vNumber").val("");
+      $("input#notes").val("");
+    }
   });
 });
