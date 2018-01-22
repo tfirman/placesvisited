@@ -1,33 +1,49 @@
 //business logic
-function Destination(first, last) {
-  this.firstName = first;
-  this.lastName = last;
+function Destination(name, landmark, season, numbers, notes) {
+  this.name = name;
+  this.landmark = landmark;
+  this.season = season;
+  this.number = numbers;
+  this.notes = notes;
 }
 
-Contact.prototype.fullName = function() {
-  return this.firstName + " " + this.lastName;
-}
+
 
 // user interface logic
 $(document).ready(function() {
-  $("form#new-contact").submit(function(event) {
+  $("form#new-destination").submit(function(event) {
     event.preventDefault();
 
-    var inputtedFirstName = $("input#new-first-name").val();
-    var inputtedLastName = $("input#new-last-name").val();
+    var inputtedName = $("input#new-destination").val();
+    var inputtedLandmark = $("input#new-landmark").val();
+    var seasonsArray = [];
+    $("input:radio[name=season]:checked").each(function(){
+      var aSeasonCheck = $(this).val();
+      seasonsArray.push(aSeasonCheck);
+    });
+    var inputtedNumber = $("input#vNumber").val();
+    var inputtedNotes = $("input#notes").val();
 
-    var newContact = new Contact(inputtedFirstName, inputtedLastName);
+    var newDestination = new Destination(inputtedName, inputtedLandmark, seasonsArray, inputtedNumber, inputtedNotes);
 
-    $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span></li>");
+    $("ul#destination").append("<li><span class='destination'>" + inputtedName + "</span></li>");
 
-    $(".contact").last().click(function() {
-      $("#show-contact").show();
-      $("#show-contact h2").text(newContact.firstName);
-      $(".first-name").text(newContact.firstName);
-      $(".last-name").text(newContact.lastName);
+    $(".destination").last().click(function() {
+      $("#show-destination").show();
+      $("#show-destination h2").text(newDestination.name);
+      $(".places").text(newDestination.landmark);
+      $(".season").text(newDestination.season);
+      $(".vNumbers").text(newDestination.numbers);
+      $(".notes").text(newDestination.notes);
     });
 
-    $("input#new-first-name").val("");
-    $("input#new-last-name").val("");
+    // $("input#new-first-name").val("");
+    // $("input#new-last-name").val("");
+    // $("input#new-first-name").val("");
+    // $("input#new-last-name").val("");
+    // $("input#new-first-name").val("");
+
+
+
   });
 });
