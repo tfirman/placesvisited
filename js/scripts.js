@@ -5,9 +5,7 @@ function Destination(name, landmark, season, numbers, notes) {
   this.season = season;
   this.number = numbers;
   this.notes = notes;
-
 }
-
 
 // user interface logic
 $(document).ready(function() {
@@ -21,7 +19,6 @@ $(document).ready(function() {
       var aSeasonCheck = $(this).val();
       seasonsArray.push(aSeasonCheck);
     });
-    alert(seasonsArray);
     var inputtedNumber = $("input#vNumber").val();
     var inputtedNotes = $("input#notes").val();
 
@@ -38,13 +35,17 @@ $(document).ready(function() {
       $(".notes").text(newDestination.notes);
     });
 
-    // $("input#new-destination").val("");
-    // $("input#new-landmark").val("");
-    // $("input#checkbox").val("");
-    // $("input#vNumber").val("");
-    // $("input#notes").val("");
-
-
+    $("input#new-destination").val("");
+    $("input#new-landmark").val("");
+    $('input[type=checkbox]').each(function() {
+      if (this.value === 'summer') {
+        this.checked = true;
+      } else {
+        this.checked = false;
+      };
+    });
+    $("input#vNumber").val("");
+    $("input#notes").val("");
 
   });
 });
