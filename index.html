@@ -5,39 +5,79 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/scripts.js"></script>
-    <title>Address book</title>
+    <title>Places visited</title>
   </head>
   <body>
     <div class="container">
-      <h1>Address book</h1>
+      <h1>Places visited</h1>
 
       <div class="row">
         <div class="col-md-6">
-          <h2>Add a contact:</h2>
+          <h2>Add a place:</h2>
           <form id="new-contact">
             <div class="form-group">
-              <label for="new-first-name">First name</label>
-              <input type="text" class="form-control" id="new-first-name">
+              <label for="new-destination">Destination</label>
+              <input type="text" class="form-control" id="new-destination">
             </div>
             <div class="form-group">
-              <label for="new-last-name">Last name</label>
-              <input type="text" class="form-control" id="new-last-name">
+              <label for="new-landmark">Landmark</label>
+              <input type="text" class="form-control" id="new-landmark">
             </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="season" value="winter" checked>
+                Winter
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="season" value="spring">
+                Spring
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="season" value="summer">
+                Summer
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="season" value="fall">
+                Fall
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label for="vNumber">Number of visits</label>
+              <input type="number" class="form-control" id="vNumber">
+            </div>
+            <div class="form-group">
+              <label for="notes">Notes</label>
+              <input type="text" class="form-control" id="notes">
+            </div>
+
 
             <button type="submit" class="btn">Add</button>
           </form>
 
-          <h2>Contacts:</h2>
-          <ul id="contacts">
+          <h2>Destinations:</h2>
+          <ul id="destination">
 
           </ul>
+
         </div>
+
         <div class="col-md-6">
-          <div id="show-contact">
+          <div id="show-destination">
             <h2></h2>
 
-            <p>First name: <span class="first-name"></span></p>
-            <p>Last name: <span class="last-name"></span></p>
+            <p>Destination: <span class="places"></span></p>
+            <p>Landmark: <span class="landmark"></span></p>
+            <p>Seasons: <span class="season"></span></p>
+            <p>Numbers of visits: <span class="vNumbers"></span></p>
+            <p>Notes <span class="notes"></span></p>
+
           </div>
         </div>
       </div>
