@@ -5,8 +5,8 @@ function Destination(name, landmark, season, numbers, notes) {
   this.season = season;
   this.number = numbers;
   this.notes = notes;
-}
 
+}
 
 
 // user interface logic
@@ -17,10 +17,11 @@ $(document).ready(function() {
     var inputtedName = $("input#new-destination").val();
     var inputtedLandmark = $("input#new-landmark").val();
     var seasonsArray = [];
-    $("input:radio[name=season]:checked").each(function(){
+    $("input:checkbox[name=season]:checked").each(function(){
       var aSeasonCheck = $(this).val();
       seasonsArray.push(aSeasonCheck);
     });
+    alert(seasonsArray);
     var inputtedNumber = $("input#vNumber").val();
     var inputtedNotes = $("input#notes").val();
 
@@ -33,15 +34,15 @@ $(document).ready(function() {
       $("#show-destination h2").text(newDestination.name);
       $(".landmark").text(newDestination.landmark);
       $(".season").text(newDestination.season);
-      $(".vNumbers").text(newDestination.numbers);
+      $(".vNumbers").text(newDestination.number);
       $(".notes").text(newDestination.notes);
     });
 
-    // $("input#new-first-name").val("");
-    // $("input#new-last-name").val("");
-    // $("input#new-first-name").val("");
-    // $("input#new-last-name").val("");
-    // $("input#new-first-name").val("");
+    // $("input#new-destination").val("");
+    // $("input#new-landmark").val("");
+    // $("input#checkbox").val("");
+    // $("input#vNumber").val("");
+    // $("input#notes").val("");
 
 
 
