@@ -31,7 +31,7 @@ $(document).ready(function() {
     $(".destination").last().click(function() {
       $("#show-destination").show();
       $("#show-destination h2").text(newDestination.name);
-      $(".places").text(newDestination.landmark);
+      $(".landmark").text(newDestination.landmark);
       $(".season").text(newDestination.season);
       $(".vNumbers").text(newDestination.numbers);
       $(".notes").text(newDestination.notes);
